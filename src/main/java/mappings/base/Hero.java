@@ -33,40 +33,40 @@ public class Hero {
         return strength;
     }
 
-    public void setStrength(Integer strength) {
-        this.strength = strength;
-    }
+//    public void setStrength(Integer strength) {
+//        this.strength = strength;
+//    }
 
     public Integer getAbilityPower() {
         return abilityPower;
     }
 
-    public void setAbilityPower(Integer abilityPower) {
-        this.abilityPower = abilityPower;
-    }
+//    public void setAbilityPower(Integer abilityPower) {
+//        this.abilityPower = abilityPower;
+//    }
 
     public Integer getArmor() {
         return armor;
     }
 
-    public void setArmor(Integer armor) {
-        this.armor = armor;
-    }
+//    public void setArmor(Integer armor) {
+//        this.armor = armor;
+//    }
 
     public Integer getMagicResist() {
         return magicResist;
     }
 
-    public void setMagicResist(Integer magicResist) {
-        this.magicResist = magicResist;
-    }
+//    public void setMagicResist(Integer magicResist) {
+//        this.magicResist = magicResist;
+//    }
 
     public Integer getAgility() {
         return agility;
     }
 
-    public void setAgility(Integer agility) {
-        this.agility = agility;
-    }
+//    public void setAgility(Integer agility) {
+//        this.agility = agility;
+//    }
 
 }
