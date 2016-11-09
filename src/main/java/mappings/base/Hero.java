@@ -1,9 +1,15 @@
 package mappings.base;
 
+import java.util.Map;
+
 /**
  * Created by mresende on 05/11/16.
  */
 public class Hero {
+
+    private final Integer id;
+    private final String className;
+    private final Map<String, Integer> attributes;
 
     private Integer lifePoints;
     private Integer manaPoints;
@@ -13,60 +19,47 @@ public class Hero {
     private Integer magicResist;
     private Integer agility;
 
+    public Hero(Integer id, String className, Map<String, Integer> attributes) {
+        this.id = id;
+        this.className = className;
+        this.attributes = attributes;
+    }
+
+
     public Integer getLifePoints() {
-        return lifePoints;
+        return this.attributes.get("life");
     }
 
     public void setLifePoints(Integer lifePoints) {
-        this.lifePoints = lifePoints;
+        this.attributes.put("life", lifePoints);
     }
 
     public Integer getManaPoints() {
-        return manaPoints;
+        return this.attributes.get("mana");
     }
 
     public void setManaPoints(Integer manaPoints) {
-        this.manaPoints = manaPoints;
+        this.attributes.put("mana", manaPoints);
     }
 
     public Integer getStrength() {
-        return strength;
+        return this.attributes.get("strength");
     }
-
-//    public void setStrength(Integer strength) {
-//        this.strength = strength;
-//    }
 
     public Integer getAbilityPower() {
-        return abilityPower;
+        return this.attributes.get("abilityPower");
     }
-
-//    public void setAbilityPower(Integer abilityPower) {
-//        this.abilityPower = abilityPower;
-//    }
 
     public Integer getArmor() {
-        return armor;
+        return this.attributes.get("armor");
     }
-
-//    public void setArmor(Integer armor) {
-//        this.armor = armor;
-//    }
 
     public Integer getMagicResist() {
-        return magicResist;
+        return this.attributes.get("magicResist");
     }
-
-//    public void setMagicResist(Integer magicResist) {
-//        this.magicResist = magicResist;
-//    }
 
     public Integer getAgility() {
-        return agility;
+        return this.attributes.get("agility");
     }
-
-//    public void setAgility(Integer agility) {
-//        this.agility = agility;
-//    }
 
 }

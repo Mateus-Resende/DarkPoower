@@ -2,31 +2,32 @@ package mappings.humans;
 
 import mappings.base.Hero;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by mresende on 05/11/16.
  */
 public class Mage extends Hero{
 
-    private final Integer id = 3;
+    private static final Integer id = 3;
 
-    private Integer lifePoints;
-    private Integer manaPoints;
-    private Integer strength;
-    private Integer abilityPower;
-    private Integer armor;
-    private Integer magicResist;
-    private Integer agility;
+    private static final String name = "Mage";
 
+    private static Map<String, Integer> attributesMap = new HashMap<String, Integer>();
+
+    static {
+        attributesMap.put("life", 2500);
+        attributesMap.put("mana", 100);
+        attributesMap.put("strength", 40);
+        attributesMap.put("abilityPower", 100);
+        attributesMap.put("armor", 30);
+        attributesMap.put("magicResist", 100);
+        attributesMap.put("agility", 40);
+    }
 
     public Mage() {
-        super();
-        this.lifePoints = 2500;
-        this.manaPoints = 100;
-        this.strength = 40;
-        this.abilityPower = 100;
-        this.armor = 30;
-        this.magicResist = 100;
-        this.agility = 40;
+        super(id, name, attributesMap);
     }
 
 }

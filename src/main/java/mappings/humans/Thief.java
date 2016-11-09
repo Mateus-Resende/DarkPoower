@@ -1,30 +1,32 @@
 package mappings.humans;
 
+import mappings.base.Hero;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by mresende on 05/11/16.
  */
-public class Thief {
+public class Thief extends Hero {
 
-    private final Integer id = 2;
+    private static final Integer id = 2;
 
-    private Integer lifePoints;
-    private Integer manaPoints;
-    private Integer strength;
-    private Integer abilityPower;
-    private Integer armor;
-    private Integer magicResist;
-    private Integer agility;
+    private static final String name = "Thief";
 
+    private static Map<String, Integer> attributesMap = new HashMap<String, Integer>();
 
-    public Thief() {
-        super();
-        this.lifePoints = 2800;
-        this.manaPoints = 50;
-        this.strength = 50;
-        this.abilityPower = 30;
-        this.armor = 40;
-        this.magicResist = 50;
-        this.agility = 100;
+    static {
+        attributesMap.put("life", 2800);
+        attributesMap.put("mana", 50);
+        attributesMap.put("strength", 50);
+        attributesMap.put("abilityPower", 30);
+        attributesMap.put("armor", 40);
+        attributesMap.put("magicResist", 50);
+        attributesMap.put("agility", 100);
     }
 
+    public Thief() {
+        super(id, name, attributesMap);
+    }
 }
