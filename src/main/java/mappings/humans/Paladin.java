@@ -14,12 +14,9 @@ public class Paladin extends Hero {
     private static final Integer id = 4;
 
     private static final String name = "Paladin";
-
-    private static Map<String, Integer> attributesMap = new HashMap<String, Integer>();
-
     private static final List<Weapons> availableWeapons = new ArrayList<Weapons>();
-
     private static final List<Spells> availableSpells = new ArrayList<Spells>();
+    private static Map<String, Integer> attributesMap = new HashMap<String, Integer>();
 
     static {
         attributesMap.put("life", 3200);
@@ -29,17 +26,17 @@ public class Paladin extends Hero {
         attributesMap.put("armor", 60);
         attributesMap.put("magicResist", 60);
         attributesMap.put("agility", 60);
+
+        Paladin.availableWeapons.add(Weapons.SACRED_TRIDENT);
+        Paladin.availableWeapons.add(Weapons.CROSSBOW);
+
+        Paladin.availableSpells.add(Spells.HEALTH_POTION);
+        Paladin.availableSpells.add(Spells.ICE_FLAME);
+        Paladin.availableSpells.add(Spells.STORM);
     }
 
     public Paladin() {
-        super(id, name, attributesMap);
-
-        this.availableWeapons.add(Weapons.SACRED_TRIDENT);
-        this.availableWeapons.add(Weapons.CROSSBOW);
-
-        this.availableSpells.add(Spells.HEALTH_POTION);
-        this.availableSpells.add(Spells.ICE_FLAME);
-        this.availableSpells.add(Spells.STORM);
+        super(id, Paladin.attributesMap, Paladin.availableWeapons, Paladin.availableSpells);
     }
 
 }

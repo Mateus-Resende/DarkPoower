@@ -22,24 +22,26 @@ public class Thief extends Hero {
     private static final List<Spells> availableSpells = new ArrayList<Spells>();
 
     static {
-        attributesMap.put("life", 2800);
-        attributesMap.put("mana", 50);
-        attributesMap.put("strength", 50);
-        attributesMap.put("abilityPower", 30);
-        attributesMap.put("armor", 40);
-        attributesMap.put("magicResist", 50);
-        attributesMap.put("agility", 100);
+        Thief.attributesMap.put("life", 2800);
+        Thief.attributesMap.put("mana", 50);
+        Thief.attributesMap.put("strength", 50);
+        Thief.attributesMap.put("abilityPower", 30);
+        Thief.attributesMap.put("armor", 40);
+        Thief.attributesMap.put("magicResist", 50);
+        Thief.attributesMap.put("agility", 100);
+
+        Thief.availableWeapons.add(Weapons.CLUB);
+        Thief.availableWeapons.add(Weapons.STAFF);
+        Thief.availableWeapons.add(Weapons.CROSSBOW);
+        Thief.availableWeapons.add(Weapons.ATTACK_SPHERE);
+
+        Thief.availableSpells.add(Spells.POISONING);
+        Thief.availableSpells.add(Spells.STORM);
     }
 
     public Thief() {
-        super(id, name, attributesMap);
+        super(id, Thief.attributesMap, Thief.availableWeapons, Thief.availableSpells);
 
-        this.availableWeapons.add(Weapons.CLUB);
-        this.availableWeapons.add(Weapons.STAFF);
-        this.availableWeapons.add(Weapons.CROSSBOW);
-        this.availableWeapons.add(Weapons.ATTACK_SPHERE);
 
-        this.availableSpells.add(Spells.POISONING);
-        this.availableSpells.add(Spells.STORM);
     }
 }

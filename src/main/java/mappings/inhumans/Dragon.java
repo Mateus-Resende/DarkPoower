@@ -22,21 +22,22 @@ public class Dragon extends Hero{
     private static final List<Spells> availableSpells = new ArrayList<Spells>();
 
     static {
-        attributesMap.put("life", 3000);
-        attributesMap.put("mana", 40);
-        attributesMap.put("strength", 100);
-        attributesMap.put("abilityPower", 20);
-        attributesMap.put("armor", 100);
-        attributesMap.put("magicResist", 50);
-        attributesMap.put("agility", 80);
+        Dragon.attributesMap.put("life", 3000);
+        Dragon.attributesMap.put("mana", 40);
+        Dragon.attributesMap.put("strength", 100);
+        Dragon.attributesMap.put("abilityPower", 20);
+        Dragon.attributesMap.put("armor", 100);
+        Dragon.attributesMap.put("magicResist", 50);
+        Dragon.attributesMap.put("agility", 80);
+
+        Dragon.availableWeapons.add(Weapons.CLUB);
+        Dragon.availableWeapons.add(Weapons.STAFF);
+
+        Dragon.availableSpells.add(Spells.FIRE_BREATH);
     }
 
     public Dragon() {
-        super(id, name, attributesMap);
+        super(id, Dragon.attributesMap, Dragon.availableWeapons, Dragon.availableSpells);
 
-        this.availableWeapons.add(Weapons.CLUB);
-        this.availableWeapons.add(Weapons.STAFF);
-
-        this.availableSpells.add(Spells.FIRE_BREATH);
     }
 }

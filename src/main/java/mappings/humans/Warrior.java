@@ -22,22 +22,23 @@ public class Warrior extends Hero {
     private static final List<Spells> availableSpells = new ArrayList<Spells>();
 
     static {
-        attributesMap.put("life", 4000);
-        attributesMap.put("mana", 30);
-        attributesMap.put("strength", 100);
-        attributesMap.put("abilityPower", 20);
-        attributesMap.put("armor", 80);
-        attributesMap.put("magicResist", 20);
-        attributesMap.put("agility", 50);
+        Warrior.attributesMap.put("life", 4000);
+        Warrior.attributesMap.put("mana", 30);
+        Warrior.attributesMap.put("strength", 100);
+        Warrior.attributesMap.put("abilityPower", 20);
+        Warrior.attributesMap.put("armor", 80);
+        Warrior.attributesMap.put("magicResist", 20);
+        Warrior.attributesMap.put("agility", 50);
+
+        Warrior.availableWeapons.add(Weapons.BAROQUE_SWORD);
+        Warrior.availableWeapons.add(Weapons.CLUB);
+
+        Warrior.availableSpells.add(Spells.STORM);
     }
 
     public Warrior() {
-        super(id, name, attributesMap);
 
-        this.availableWeapons.add(Weapons.BAROQUE_SWORD);
-        this.availableWeapons.add(Weapons.CLUB);
-
-        this.availableSpells.add(Spells.STORM);
+        super(id, Warrior.attributesMap, Warrior.availableWeapons, Warrior.availableSpells);
     }
 
 }

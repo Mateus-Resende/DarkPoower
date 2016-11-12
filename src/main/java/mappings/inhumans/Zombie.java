@@ -22,23 +22,23 @@ public class Zombie extends Hero{
     private static final List<Spells> availableSpells = new ArrayList<Spells>();
 
     static {
-        attributesMap.put("life", 2500);
-        attributesMap.put("mana", 20);
-        attributesMap.put("strength", 40);
-        attributesMap.put("abilityPower", 20);
-        attributesMap.put("armor", 80);
-        attributesMap.put("magicResist", 90);
-        attributesMap.put("agility", 20);
+        Zombie.attributesMap.put("life", 2500);
+        Zombie.attributesMap.put("mana", 20);
+        Zombie.attributesMap.put("strength", 40);
+        Zombie.attributesMap.put("abilityPower", 20);
+        Zombie.attributesMap.put("armor", 80);
+        Zombie.attributesMap.put("magicResist", 90);
+        Zombie.attributesMap.put("agility", 20);
+
+        Zombie.availableWeapons.add(Weapons.LETHAL_CLAW);
+        Zombie.availableWeapons.add(Weapons.CLUB);
+        Zombie.availableWeapons.add(Weapons.STAFF);
+
+        Zombie.availableSpells.add(Spells.POISONING);
     }
 
     public Zombie() {
-        super(id, name, attributesMap);
-
-        this.availableWeapons.add(Weapons.LETHAL_CLAW);
-        this.availableWeapons.add(Weapons.CLUB);
-        this.availableWeapons.add(Weapons.STAFF);
-
-        this.availableSpells.add(Spells.POISONING);
+        super(id, Zombie.attributesMap, Zombie.availableWeapons, Zombie.availableSpells);
     }
 
 }

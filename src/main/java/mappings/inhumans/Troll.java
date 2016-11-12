@@ -22,19 +22,20 @@ public class Troll extends Hero{
     private static final List<Spells> availableSpells = new ArrayList<Spells>();
 
     static {
-        attributesMap.put("life", 2800);
-        attributesMap.put("mana", 20);
-        attributesMap.put("strength", 100);
-        attributesMap.put("abilityPower", 20);
-        attributesMap.put("armor", 100);
-        attributesMap.put("magicResist", 20);
-        attributesMap.put("agility", 20);
+        Troll.attributesMap.put("life", 2800);
+        Troll.attributesMap.put("mana", 20);
+        Troll.attributesMap.put("strength", 100);
+        Troll.attributesMap.put("abilityPower", 20);
+        Troll.attributesMap.put("armor", 100);
+        Troll.attributesMap.put("magicResist", 20);
+        Troll.attributesMap.put("agility", 20);
+
+        Troll.availableWeapons.add(Weapons.LETHAL_CLAW);
+
+        Troll.availableSpells.add(Spells.POISONING);
     }
 
     public Troll() {
-        super(id, name, attributesMap);
-        this.availableWeapons.add(Weapons.LETHAL_CLAW);
-
-        this.availableSpells.add(Spells.POISONING);
+        super(id, Troll.attributesMap, Troll.availableWeapons, Troll.availableSpells);
     }
 }

@@ -1,11 +1,11 @@
 package mappings.base;
 
+import java.util.List;
 import java.util.Map;
 
 public class Hero {
 
     private final Integer id;
-    private final String className;
     private final Map<String, Integer> attributes;
 
     private Integer lifePoints;
@@ -15,13 +15,38 @@ public class Hero {
     private Integer armor;
     private Integer magicResist;
     private Integer agility;
+    private List<Weapons> availableWeapons;
+    private List<Spells> availableSpells;
+    private Weapons equippedWeapon;
 
-    public Hero(Integer id, String className, Map<String, Integer> attributes) {
+
+    public Hero(Integer id, Map<String, Integer> attributes, List<Weapons> availableWeapons, List<Spells> availableSpells) {
         this.id = id;
-        this.className = className;
         this.attributes = attributes;
+        this.availableSpells = availableSpells;
+        this.availableWeapons = availableWeapons;
+        this.equippedWeapon = this.getLowestDamageWeapon();
     }
 
+    private Weapons getLowestDamageWeapon() {
+        Weapons weapon = this.availableWeapons.get(0);
+
+        for (Weapons w : this.availableWeapons) {
+            if (w.getDamage() < weapon.getDamage()) {
+                weapon = w;
+            }
+        }
+
+        return weapon;
+    }
+
+    public Weapons getEquippedWeapon() {
+        return this.equippedWeapon;
+    }
+
+    public void setEquippedWeapon(Weapons weapon) {
+        this.equippedWeapon = weapon;
+    }
 
     public Integer getLifePoints() {
         return this.attributes.get("life");

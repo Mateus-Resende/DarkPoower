@@ -22,20 +22,21 @@ public class Animal extends Hero {
     private static final List<Spells> availableSpells = new ArrayList<Spells>();
 
     static {
-        attributesMap.put("life", 3200);
-        attributesMap.put("mana", 30);
-        attributesMap.put("strength", 80);
-        attributesMap.put("abilityPower", 20);
-        attributesMap.put("armor", 90);
-        attributesMap.put("magicResist", 20);
-        attributesMap.put("agility", 50);
+        Animal.attributesMap.put("life", 3200);
+        Animal.attributesMap.put("mana", 30);
+        Animal.attributesMap.put("strength", 80);
+        Animal.attributesMap.put("abilityPower", 20);
+        Animal.attributesMap.put("armor", 90);
+        Animal.attributesMap.put("magicResist", 20);
+        Animal.attributesMap.put("agility", 50);
+
+        Animal.availableWeapons.add(Weapons.LETHAL_CLAW);
+
+        Animal.availableSpells.add(Spells.BIO_ANTRAX);
     }
 
     public Animal() {
-        super(id, name, attributesMap);
-        this.availableWeapons.add(Weapons.LETHAL_CLAW);
-
-        this.availableSpells.add(Spells.BIO_ANTRAX);
+        super(id, Animal.attributesMap, Animal.availableWeapons, Animal.availableSpells);
     }
 
 
