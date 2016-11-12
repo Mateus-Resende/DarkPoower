@@ -1,8 +1,12 @@
 package mappings.inhumans;
 
 import mappings.base.Hero;
+import mappings.base.Spells;
+import mappings.base.Weapons;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,6 +20,10 @@ public class Animal extends Hero {
 
     private static Map<String, Integer> attributesMap = new HashMap<String, Integer>();
 
+    private static final List<Weapons> availableWeapons = new ArrayList<Weapons>();
+
+    private static final List<Spells> availableSpells = new ArrayList<Spells>();
+
     static {
         attributesMap.put("life", 3200);
         attributesMap.put("mana", 30);
@@ -28,6 +36,11 @@ public class Animal extends Hero {
 
     public Animal() {
         super(id, name, attributesMap);
+        this.availableWeapons.add(Weapons.LETHAL_CLAW);
+
+        this.availableSpells.add(Spells.BIO_ANTRAX);
     }
+
+
 
 }

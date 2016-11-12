@@ -1,8 +1,12 @@
 package mappings.humans;
 
 import mappings.base.Hero;
+import mappings.base.Spells;
+import mappings.base.Weapons;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,6 +20,10 @@ public class Warrior extends Hero {
 
     private static Map<String, Integer> attributesMap = new HashMap<String, Integer>();
 
+    private static final List<Weapons> availableWeapons = new ArrayList<Weapons>();
+
+    private static final List<Spells> availableSpells = new ArrayList<Spells>();
+
     static {
         attributesMap.put("life", 4000);
         attributesMap.put("mana", 30);
@@ -28,6 +36,11 @@ public class Warrior extends Hero {
 
     public Warrior() {
         super(id, name, attributesMap);
+
+        this.availableWeapons.add(Weapons.BAROQUE_SWORD);
+        this.availableWeapons.add(Weapons.CLUB);
+
+        this.availableSpells.add(Spells.STORM);
     }
 
 }
