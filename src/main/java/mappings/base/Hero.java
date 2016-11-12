@@ -2,9 +2,6 @@ package mappings.base;
 
 import java.util.Map;
 
-/**
- * Created by mresende on 05/11/16.
- */
 public class Hero {
 
     private final Integer id;

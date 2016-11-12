@@ -1,10 +1,5 @@
 package mappings.base;
 
-
-/**
- * Created by mresende on 07/11/16.
- */
-
 public enum Weapons {
 
     ATTACK_SPHERE(300),  // Esfera de ataque
