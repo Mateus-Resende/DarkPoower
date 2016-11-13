@@ -1,6 +1,7 @@
 package mappings.inhumans;
 
 import mappings.base.Hero;
+import mappings.base.Race;
 import mappings.base.Spells;
 import mappings.base.Weapons;
 
@@ -37,7 +38,7 @@ public class Dragon extends Hero{
     }
 
     public Dragon() {
-        super(id, Dragon.attributesMap, Dragon.availableWeapons, Dragon.availableSpells);
+        super(id, Dragon.attributesMap, Dragon.availableWeapons, Dragon.availableSpells, Race.INHUMAN);
 
     }
 }

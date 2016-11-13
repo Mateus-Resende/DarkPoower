@@ -1,6 +1,7 @@
 package mappings.inhumans;
 
 import mappings.base.Hero;
+import mappings.base.Race;
 import mappings.base.Spells;
 import mappings.base.Weapons;
 
@@ -38,7 +39,7 @@ public class Zombie extends Hero{
     }
 
     public Zombie() {
-        super(id, Zombie.attributesMap, Zombie.availableWeapons, Zombie.availableSpells);
+        super(id, Zombie.attributesMap, Zombie.availableWeapons, Zombie.availableSpells, Race.INHUMAN);
     }
 
 }

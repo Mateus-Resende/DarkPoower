@@ -1,6 +1,7 @@
 package mappings.inhumans;
 
 import mappings.base.Hero;
+import mappings.base.Race;
 import mappings.base.Spells;
 import mappings.base.Weapons;
 
@@ -36,7 +37,7 @@ public class Animal extends Hero {
     }
 
     public Animal() {
-        super(id, Animal.attributesMap, Animal.availableWeapons, Animal.availableSpells);
+        super(id, Animal.attributesMap, Animal.availableWeapons, Animal.availableSpells, Race.INHUMAN);
     }
 
 

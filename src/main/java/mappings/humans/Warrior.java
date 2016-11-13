@@ -1,6 +1,7 @@
 package mappings.humans;
 
 import mappings.base.Hero;
+import mappings.base.Race;
 import mappings.base.Spells;
 import mappings.base.Weapons;
 
@@ -38,7 +39,7 @@ public class Warrior extends Hero {
 
     public Warrior() {
 
-        super(id, Warrior.attributesMap, Warrior.availableWeapons, Warrior.availableSpells);
+        super(id, Warrior.attributesMap, Warrior.availableWeapons, Warrior.availableSpells, Race.HUMAN);
     }
 
 }

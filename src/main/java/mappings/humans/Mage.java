@@ -1,6 +1,7 @@
 package mappings.humans;
 
 import mappings.base.Hero;
+import mappings.base.Race;
 import mappings.base.Spells;
 import mappings.base.Weapons;
 
@@ -42,7 +43,7 @@ public class Mage extends Hero {
     }
 
     public Mage() {
-        super(id, Mage.attributesMap, Mage.availableWeapons, Mage.availableSpells);
+        super(id, Mage.attributesMap, Mage.availableWeapons, Mage.availableSpells, Race.HUMAN);
     }
 
 }

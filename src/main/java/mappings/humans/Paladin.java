@@ -1,6 +1,7 @@
 package mappings.humans;
 
 import mappings.base.Hero;
+import mappings.base.Race;
 import mappings.base.Spells;
 import mappings.base.Weapons;
 
@@ -36,7 +37,7 @@ public class Paladin extends Hero {
     }
 
     public Paladin() {
-        super(id, Paladin.attributesMap, Paladin.availableWeapons, Paladin.availableSpells);
+        super(id, Paladin.attributesMap, Paladin.availableWeapons, Paladin.availableSpells, Race.HUMAN);
     }
 
 }

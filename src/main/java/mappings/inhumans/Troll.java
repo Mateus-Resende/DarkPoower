@@ -1,6 +1,7 @@
 package mappings.inhumans;
 
 import mappings.base.Hero;
+import mappings.base.Race;
 import mappings.base.Spells;
 import mappings.base.Weapons;
 
@@ -36,6 +37,6 @@ public class Troll extends Hero{
     }
 
     public Troll() {
-        super(id, Troll.attributesMap, Troll.availableWeapons, Troll.availableSpells);
+        super(id, Troll.attributesMap, Troll.availableWeapons, Troll.availableSpells, Race.INHUMAN);
     }
 }
