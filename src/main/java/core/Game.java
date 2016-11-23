@@ -1,95 +1,143 @@
 package core;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
+import exceptions.InvalidAttackTypeException;
+import exceptions.SpellNotAvailableForClass;
+import exceptions.WeaponNotAvailableForClassException;
+import mappings.base.Hero;
 import mappings.base.Player;
+import mappings.base.Spells;
+import mappings.base.Weapons;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
- * Created by mresende on 13/11/16.
+ * responsável pela lógica de negócio dos turnos
  */
 public class Game {
 
-    Database db;
+    private List<Player> players;
+    private Player currentPlayer;
+    private Boolean gameOver;
 
-    public static void main(String[] args) {
-        Game g = new Game();
+    public Game(List<Player> players) {
+        this.players = players;
+    }
 
-        // get the number of users that will play
-        Integer amountOfUsers = g.getUsersCount();
-        List<Player> players = new ArrayList<Player>(amountOfUsers);
+    public Player getCurrentPlayer() {
+        return this.currentPlayer;
+    }
 
-        // Creating players
-        for (int i = 0; i < amountOfUsers; i++) {
-            players.add(g.createPlayer());
+    public void setCurrentPlayer(Player p) {
+        if (players.contains(p)) {
+            this.currentPlayer = p;
         }
+    }
 
-        // finding players
-        BasicDBObject query = new BasicDBObject();
-        query.put("name", players.get(0).getName());
+    public boolean startGame() {
+        if (!this.gameOver && this.players.size() > 2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-        DBCursor results = g.find("players", query);
-        ObjectMapper mapper = new ObjectMapper();
-
-        while (results.hasNext()) {
-            try {
-                System.out.println(mapper.readValue(results.next().toString(), Player.class).getName());
-            } catch (IOException e) {
-                e.printStackTrace();
+    public Player getWinner() {
+        Player winner = null;
+        if (this.gameOver) {
+            for (Player p : players) {
+                if (!p.hasLost()) {
+                    if (winner == null) {
+                        winner = p;
+                    } else {
+                        return null;
+                    }
+                }
             }
         }
+        return winner;
     }
 
-    public Game() {
-        db = new Database();
-    }
+    public Boolean doAction(TurnAction action, Player source, Player target, Spells spell, Weapons weapon) {
+        Boolean actionSuccessfull = true;
 
-    private DBCursor find(String collectionName, DBObject query) {
-        return db.find(collectionName, query);
-    }
+        if (currentPlayer.equals(source) && !source.hasLost() && players.contains(target) && !target.hasLost() && !source.equals(target)) {
 
+            Hero sourceHero = source.getActiveHero();
+            Hero targetHero = target.getActiveHero();
 
-    private Player createPlayer() {
-        Player p = null;
+            switch (action) {
+                case ATTACK:
+                    try {
+                        Integer damageDealt = sourceHero.attack();
+                        sourceHero.receiveDamage(damageDealt, weapon);
+                        this.endTurn();
+                    } catch (InvalidAttackTypeException e) {
+                        actionSuccessfull = false;
+                        e.printStackTrace();
+                    }
+                    break;
 
-        try {
-            System.out.println("Criando jogador...");
-            System.out.print("\nDigite o nome do usuário: ");
-            Scanner s = new Scanner(System.in);
-            String name = s.nextLine();
-            p = new Player(name);
-            db.savePlayer(p);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return p;
+                case HEAL:
+                    try {
+                        Integer lifeHealed = sourceHero.useSpell(spell);
+                        sourceHero.healLifePoints(lifeHealed);
+                        this.endTurn();
+                    } catch (SpellNotAvailableForClass spellNotAvailableForClass) {
+                        actionSuccessfull = false;
+                        spellNotAvailableForClass.printStackTrace();
+                    }
+                    break;
 
-    }
+                case PASS:
+                    this.endTurn();
+                    break;
 
-    private Integer getUsersCount() {
-        Scanner s = new Scanner(System.in);
-        boolean validAmountOfUsers = false;
-        int usersCount = 0;
+                case SPELL:
+                    try {
+                        Integer damageDealt = sourceHero.useSpell(spell);
+                        targetHero.receiveDamage(damageDealt, spell);
+                        this.endTurn();
+                    } catch (SpellNotAvailableForClass spellNotAvailableForClass) {
+                        actionSuccessfull = false;
+                        spellNotAvailableForClass.printStackTrace();
 
-        while (!validAmountOfUsers) {
-            try {
-                System.out.print("Digite a quantidade de usuários que jogarão: ");
-                usersCount = s.nextInt();
-                validAmountOfUsers = true;
-            } catch (NumberFormatException e) {
-                System.out.println("A quantidade deve ser um inteiro...");
+                    } catch (InvalidAttackTypeException invalidAttackTypeException) {
+                        actionSuccessfull = false;
+                        invalidAttackTypeException.printStackTrace();
+                    }
+
+                    break;
+
+                case SWITCH_WEAPON:
+                    try {
+                        sourceHero.setEquippedWeapon(weapon);
+                        this.endTurn();
+                    } catch (WeaponNotAvailableForClassException weaponNotAvailableForClassException) {
+                        actionSuccessfull = false;
+                        weaponNotAvailableForClassException.printStackTrace();
+                    }
+                    break;
             }
         }
 
-        return usersCount;
+        return actionSuccessfull;
     }
 
+    public void endTurn() {
+        Integer nextPlayer = this.players.indexOf(this.currentPlayer) + 1;
+
+        if (nextPlayer >= this.players.size()) {
+            nextPlayer = 0;
+        }
+
+        this.currentPlayer = this.players.get(nextPlayer);
+    }
+
+    public Boolean getGameOver() {
+        return gameOver;
+    }
+
+    public void setGameOver(Boolean gameOver) {
+        this.gameOver = gameOver;
+    }
 }

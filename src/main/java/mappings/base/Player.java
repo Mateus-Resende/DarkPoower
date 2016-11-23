@@ -21,6 +21,22 @@ public class Player {
 
     public Player(){}
 
+    public Boolean hasLost() {
+        return this.hasAliveHeroes();
+    }
+
+    private Boolean hasAliveHeroes() {
+        Boolean aliveHeroes = false;
+
+        for (Hero h : heroes) {
+            if (!h.isHeroDead()) {
+                return true;
+            }
+        }
+
+        return aliveHeroes;
+    }
+
     public Player(String name) {
         this.name = name;
         this.heroes = new ArrayList<Hero>(2);

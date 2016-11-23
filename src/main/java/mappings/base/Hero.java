@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class Hero {
 
-    private static final Double SPECIAL_ATTACK_MULTIPLIER = 1.5;
+    private static final Integer SPECIAL_ATTACK_MULTIPLIER = 2;
 
     private final Integer id;
     private final Map<String, Integer> attributes;
@@ -52,7 +52,7 @@ public class Hero {
         return lowestDamage;
     }
 
-    public void receiveAttack(Integer damage, Object type) throws InvalidAttackTypeException {
+    public void receiveDamage (Integer damage, Object type) throws InvalidAttackTypeException {
         if (type.getClass().equals(Spells.class)) {
             this.lifePoints -= damage - this.magicResist - this.agility;
         } else if (type.getClass().equals(Weapons.class)) {
@@ -60,6 +60,10 @@ public class Hero {
         } else {
             throw new InvalidAttackTypeException();
         }
+    }
+
+    public void healLifePoints (Integer healpoints) {
+        this.lifePoints += healpoints;
     }
 
     public boolean isSpecialAttackAvailable() {
@@ -82,11 +86,11 @@ public class Hero {
         }
     }
 
-    public Double attack() {
-        return this.agility.doubleValue() + this.equippedWeapon.getDamage().doubleValue();
+    public Integer attack() {
+        return this.agility + this.equippedWeapon.getDamage();
     }
 
-    public Double specialAttack() throws SpecialAttackNotAvailableException {
+    public Integer specialAttack() throws SpecialAttackNotAvailableException {
         if (this.specialAttackCount >= 10 && this.race.equals(Race.INHUMAN)) {
             return this.attack() * this.SPECIAL_ATTACK_MULTIPLIER;
         } else {
@@ -94,7 +98,7 @@ public class Hero {
         }
     }
 
-    public Double specialAttack(Spells s) throws SpecialAttackNotAvailableException, SpellNotAvailableForClass {
+    public Integer specialAttack(Spells s) throws SpecialAttackNotAvailableException, SpellNotAvailableForClass {
         if (this.specialAttackCount >= 10 && this.race.equals(Race.HUMAN) && !s.isHealingSpell()) {
             return this.useSpell(s) * this.SPECIAL_ATTACK_MULTIPLIER;
         } else {
