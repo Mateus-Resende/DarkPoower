@@ -1,15 +1,12 @@
 package mappings.base;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mongodb.util.JSON;
+import java.util.List;
+import java.util.Map;
+
 import exceptions.InvalidAttackTypeException;
 import exceptions.SpecialAttackNotAvailableException;
 import exceptions.SpellNotAvailableForClass;
 import exceptions.WeaponNotAvailableForClassException;
-
-import java.util.List;
-import java.util.Map;
 
 public class Hero {
 
@@ -30,8 +27,14 @@ public class Hero {
     private Weapons equippedWeapon;
     private Race race;
 
-    private Integer specialAttackCount;
-
+    /**
+     * criação de herói com os atributos desejados, devem vir da classe que está extendendo herói
+     * @param id
+     * @param attributes
+     * @param availableWeapons
+     * @param availableSpells
+     * @param race
+     */
     public Hero(Integer id, Map<String, Integer> attributes, List<Weapons> availableWeapons, List<Spells> availableSpells, Race race) {
         this.id = id;
         this.attributes = attributes;
@@ -39,9 +42,12 @@ public class Hero {
         this.availableWeapons = availableWeapons;
         this.equippedWeapon = this.getLowestDamageWeapon();
         this.race = race;
-        this.specialAttackCount = 0;
     }
 
+    /**
+     * herói sempre inicial com a arma de menor ataque
+     * @return arma de menor ataque disponível
+     */
     private Weapons getLowestDamageWeapon() {
         Weapons lowestDamage = this.availableWeapons.get(0);
         for (Weapons w : this.availableWeapons) {
@@ -52,6 +58,12 @@ public class Hero {
         return lowestDamage;
     }
 
+    /**
+     * Recebe o dano e diminui os valores de defesa
+     * @param damage
+     * @param type
+     * @throws InvalidAttackTypeException
+     */
     public void receiveDamage (Integer damage, Object type) throws InvalidAttackTypeException {
         if (type.getClass().equals(Spells.class)) {
             this.lifePoints -= damage - this.magicResist - this.agility;
@@ -62,22 +74,41 @@ public class Hero {
         }
     }
 
+    /**
+     * Método para receber cura
+     * @param healpoints
+     */
     public void healLifePoints (Integer healpoints) {
         this.lifePoints += healpoints;
     }
 
-    public boolean isSpecialAttackAvailable() {
-        return this.specialAttackCount >= 10;
-    }
-
+    /**
+     * Confere se o herói ainda está vivo
+     * @return
+     */
     public boolean isHeroDead(){
         return this.lifePoints <= 0;
     }
 
+    /**
+     * @return a arma equipada pelo herói
+     */
     public Weapons getEquippedWeapon() {
         return this.equippedWeapon;
     }
+    
+    /**
+     * Adiciona 10 de mana para o fim do turno
+     */
+    public void addEndTurnMana() {
+    	this.manaPoints += 10;
+    }
 
+    /**
+     * Seta arma equipada
+     * @param weapon
+     * @throws WeaponNotAvailableForClassException - caso a arma não é disponível para esse hero
+     */
     public void setEquippedWeapon(Weapons weapon) throws WeaponNotAvailableForClassException {
         if (this.availableWeapons.contains(weapon)) {
             this.equippedWeapon = weapon;
@@ -86,36 +117,62 @@ public class Hero {
         }
     }
 
+    /**
+     * Calcula valor de ataque usando arma
+     * @return inteiro com o valor do ataque
+     */
     public Integer attack() {
-        return this.agility + this.equippedWeapon.getDamage();
+        return this.agility + this.equippedWeapon.getDamage() + this.strength;
     }
 
+    /**
+     * Usa ataque especial de inumanos
+     * @return ataque multiplicado
+     * @throws SpecialAttackNotAvailableException
+     */
     public Integer specialAttack() throws SpecialAttackNotAvailableException {
-        if (this.specialAttackCount >= 10 && this.race.equals(Race.INHUMAN)) {
-            return this.attack() * this.SPECIAL_ATTACK_MULTIPLIER;
+        if (this.race.equals(Race.INHUMAN)) {
+            return this.attack() * Hero.SPECIAL_ATTACK_MULTIPLIER;
         } else {
             throw new SpecialAttackNotAvailableException();
         }
     }
 
+    /**
+     * usa ataque especial de humanos
+     * @param s - magia desejada
+     * @return ataque multiplicado
+     * @throws SpecialAttackNotAvailableException
+     * @throws SpellNotAvailableForClass
+     */
     public Integer specialAttack(Spells s) throws SpecialAttackNotAvailableException, SpellNotAvailableForClass {
-        if (this.specialAttackCount >= 10 && this.race.equals(Race.HUMAN) && !s.isHealingSpell()) {
-            return this.useSpell(s) * this.SPECIAL_ATTACK_MULTIPLIER;
+        if (this.race.equals(Race.HUMAN) && !s.isHealingSpell()) {
+            return this.useSpell(s) * Hero.SPECIAL_ATTACK_MULTIPLIER;
         } else {
             throw new SpecialAttackNotAvailableException();
         }
     }
-
+    
+	/**
+	 * Usa magia especificada 
+	 * @param s
+	 * @return o valor do ataque
+	 * @throws SpellNotAvailableForClass
+	 */
     public Integer useSpell(Spells s) throws SpellNotAvailableForClass {
         if (this.availableSpells.contains(s)) {
             this.manaPoints -= s.getMana();
-            return (s.isHealingSpell() ? s.getHeal() : s.getDamage());
+            return (s.isHealingSpell() ? s.getHeal() : s.getDamage()) + this.abilityPower;
         } else {
             throw new SpellNotAvailableForClass(s, this);
         }
     }
 
-
+    /* ================================================
+     * Getters e Setters para as variáveis do herói 
+     * ================================================
+     */
+    
     public Integer getLifePoints() {
         return this.attributes.get("life");
     }
@@ -150,14 +207,6 @@ public class Hero {
 
     public Integer getAgility() {
         return this.attributes.get("agility");
-    }
-
-    public Integer getSpecialAttackCount() {
-        return specialAttackCount;
-    }
-
-    public void setSpecialAttackCount(Integer specialAttackCount) {
-        this.specialAttackCount = specialAttackCount;
     }
 
 }

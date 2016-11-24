@@ -18,6 +18,8 @@ public class Player {
 
     @JsonProperty("activeHero")
     private Hero activeHero;
+    
+    private Integer specialAttackCount;
 
     public Player(){}
 
@@ -36,13 +38,24 @@ public class Player {
 
         return aliveHeroes;
     }
-
-    public Player(String name) {
-        this.name = name;
-        this.heroes = new ArrayList<Hero>(2);
+    
+    public Integer getSpecialAttackCount() {
+    	return this.specialAttackCount;
+    }
+    
+    public void addSpecialAttackCount() {
+    	this.specialAttackCount += 1;
+    }
+    
+    public Boolean isSpecialAttackAvailable() {
+    	return this.specialAttackCount >= 10;
     }
 
-    public Player(String name, List heroes) {
+    public Player(String name) {
+        this(name, new ArrayList<Hero>(2));
+    }
+
+    public Player(String name, List<Hero> heroes) {
         this.name = name;
         this.heroes = heroes;
     }
@@ -67,5 +80,7 @@ public class Player {
             this.activeHero = h;
         }
     }
+    
+    
 
 }
