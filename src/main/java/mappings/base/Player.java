@@ -1,17 +1,15 @@
 package mappings.base;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import mappings.base.Hero;
+
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class Player {
 
     @JsonProperty("name")
-    private String name;
+    private final String name;
 
     @JsonProperty("heroes")
     private List<Hero> heroes;
@@ -21,7 +19,9 @@ public class Player {
     
     private Integer specialAttackCount;
 
-    public Player(){}
+    public Player(String name){
+        this.name = name;
+    }
 
     public Boolean hasLost() {
         return this.hasAliveHeroes();
@@ -49,15 +49,6 @@ public class Player {
     
     public Boolean isSpecialAttackAvailable() {
     	return this.specialAttackCount >= 10;
-    }
-
-    public Player(String name) {
-        this(name, new ArrayList<Hero>(2));
-    }
-
-    public Player(String name, List<Hero> heroes) {
-        this.name = name;
-        this.heroes = heroes;
     }
 
     public String getName() {

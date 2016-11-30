@@ -9,12 +9,12 @@ package screens;
  *
  * @author 11518681
  */
-public class playerCreationScreen extends javax.swing.JFrame {
+public class BattleScreen extends javax.swing.JFrame {
 
     /**
-     * Creates new form playerCreationScreen
+     * Creates new form battleScreen
      */
-    public playerCreationScreen() {
+    public BattleScreen() {
         initComponents();
     }
 
@@ -46,6 +46,7 @@ public class playerCreationScreen extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

@@ -3,17 +3,19 @@ package core;
 
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import java.util.Scanner;
 import mappings.base.Player;
 
-import java.util.Scanner;
+import screens.HomeScreen;
 
 public class Main {
 
     Database db;
 
     public static void main(String[] args) {
-    	// será implementado um loop while (game.isGameRunning()) para continuar o jogo
-    	// ao sair do loop, mostra vencedor
+    	HomeScreen homeScreen = new HomeScreen();
+        
+        homeScreen.setVisible(true);
     }
 
 

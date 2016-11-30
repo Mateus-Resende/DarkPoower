@@ -5,16 +5,19 @@
  */
 package screens;
 
+import core.Game;
+
 /**
  *
  * @author 11518681
  */
-public class changeHeroScreen extends javax.swing.JFrame {
+public class SelectHeroScreen extends javax.swing.JFrame {
 
     /**
      * Creates new form changeHeroScreen
      */
-    public changeHeroScreen() {
+    public SelectHeroScreen(Game game) {
+        this.game = game;
         initComponents();
     }
 
@@ -46,7 +49,8 @@ public class changeHeroScreen extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
+    
+    private Game game;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
