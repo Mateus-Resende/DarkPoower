@@ -25,8 +25,9 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
     /**
      * Creates new form playerCreationScreen
      */
-    public PlayerCreationScreen() {
+    public PlayerCreationScreen(int numPlayers) {
         this.playerNames = new ArrayList();
+        this.numPlayers = numPlayers;
         initComponents();
     }
 
@@ -39,13 +40,9 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSlider2 = new javax.swing.JSlider();
         userNamesPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
         nextButton = new javax.swing.JButton();
@@ -53,17 +50,6 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dark Poower");
         setSize(new java.awt.Dimension(913, 471));
-
-        jSlider2.setBackground(new java.awt.Color(204, 204, 204));
-        jSlider2.setForeground(new java.awt.Color(153, 255, 102));
-        jSlider2.setValue(2);
-        jSlider2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
-        jSlider2.setOpaque(true);
-        jSlider2.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSlider2StateChanged(evt);
-            }
-        });
 
         userNamesPanel.setBackground(new java.awt.Color(51, 51, 51));
         userNamesPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 255), new java.awt.Color(0, 0, 0)));
@@ -73,44 +59,29 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
         jLabel1.setText("Nome de usuário: ");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel3.setBackground(new java.awt.Color(0, 0, 51));
-        jLabel3.setText("Nome de usuário: ");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         javax.swing.GroupLayout userNamesPanelLayout = new javax.swing.GroupLayout(userNamesPanel);
         userNamesPanel.setLayout(userNamesPanelLayout);
         userNamesPanelLayout.setHorizontalGroup(
             userNamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userNamesPanelLayout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addGroup(userNamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addGroup(userNamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel1)
+                .addGap(53, 53, 53)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
         userNamesPanelLayout.setVerticalGroup(
             userNamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userNamesPanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(userNamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(userNamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(userNamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(userNamesPanelLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userNamesPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
-
-        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("   Número de jogadores:");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel2.setOpaque(true);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -143,29 +114,20 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(113, 113, 113)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(backButton)
-                            .addGap(2, 2, 2)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(nextButton))
-                        .addComponent(userNamesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(175, 175, 175))
+                        .addComponent(backButton)
+                        .addGap(2, 2, 2)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(288, 288, 288)
+                        .addComponent(nextButton))
+                    .addComponent(userNamesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(89, 89, 89)
                 .addComponent(userNamesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -179,52 +141,17 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
                                 .addGap(18, 18, 18))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(nextButton)
-                                .addContainerGap())))))
+                                .addGap(20, 20, 20))))))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jSlider2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider2StateChanged
-        JSlider numberOfPlayers = (JSlider) evt.getSource();
-        this.userNamesPanel.removeAll();
-        for (int i = 0; i < numberOfPlayers.getValue(); i++) {
-            javax.swing.JLabel nameLabel = new javax.swing.JLabel();
-            nameLabel.setBackground(new java.awt.Color(0, 0, 51));
-            nameLabel.setText("Nome de usuário: ");
-            nameLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            
-            javax.swing.JTextField inputName = new javax.swing.JTextField();
-
-            javax.swing.GroupLayout userNamesPanelLayout = new javax.swing.GroupLayout(userNamesPanel);
-            userNamesPanel.setLayout(userNamesPanelLayout);
-            userNamesPanelLayout.setHorizontalGroup(
-                    userNamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(userNamesPanelLayout.createSequentialGroup()
-                                    .addGap(52, 52, 52)
-                                    .addComponent(nameLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addContainerGap(197, Short.MAX_VALUE))
-            );
-            userNamesPanelLayout.setVerticalGroup(
-                    userNamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(userNamesPanelLayout.createSequentialGroup()
-                                    .addGap(22, 22, 22)
-                                    .addGroup(userNamesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addContainerGap(35, Short.MAX_VALUE))
-            );
-            playerNames.add(inputName);
-        }
-    }//GEN-LAST:event_jSlider2StateChanged
-
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        NumberOfPlayers numPlayers = new NumberOfPlayers();
+        numPlayers.setVisible(true);
         this.dispose();
-        HomeScreen home = new HomeScreen();
-        home.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
@@ -250,24 +177,17 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
         }
         return names;
     }
-    
-    private boolean isRepeatedName(List<Player> players, Player p) {
-        
-        return true;
-    }
+   
     private List<javax.swing.JTextField> playerNames;
+    private int numPlayers;
     /**
      * @param args the command line arguments
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSlider jSlider2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton nextButton;
     private javax.swing.JPanel userNamesPanel;
     // End of variables declaration//GEN-END:variables
