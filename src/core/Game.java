@@ -4,6 +4,7 @@ import exceptions.InvalidAttackTypeException;
 import exceptions.SpecialAttackNotAvailableException;
 import exceptions.SpellNotAvailableForClass;
 import exceptions.WeaponNotAvailableForClassException;
+import java.util.ArrayList;
 import mappings.base.Hero;
 import mappings.base.Player;
 import mappings.base.Spells;
@@ -229,6 +230,22 @@ public class Game {
             nextPlayer = 0;
         }
         return this.players.get(nextPlayer);
+    }
+    
+    /**
+     * 
+     * @return retorna uma lista de inimigos (exclui jogador atual)
+     */
+    public List<Player> getEnemies() {
+        List<Player> enemies = new ArrayList();
+        
+        for (Player p : this.players) {
+            if (!this.currentPlayer.equals(p)) {
+                enemies.add(p);
+            }
+        }
+        
+        return enemies;
     }
 
     /**

@@ -7,6 +7,7 @@ import exceptions.InvalidAttackTypeException;
 import exceptions.SpecialAttackNotAvailableException;
 import exceptions.SpellNotAvailableForClass;
 import exceptions.WeaponNotAvailableForClassException;
+import java.util.ArrayList;
 
 public class Hero {
 
@@ -105,7 +106,15 @@ public class Hero {
             this.manaPoints += 10;
         }
     }
-
+    
+    public List<Spells> getAvailableSpells() {
+        return this.availableSpells;
+    }
+    
+    public List<Weapons> getAvailableWeapons() {
+        return this.availableWeapons;
+    }
+    
     /**
      * Seta arma equipada
      * @param weapon
