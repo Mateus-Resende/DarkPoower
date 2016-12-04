@@ -1,21 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package screens;
 
+import mappings.base.Player;
+import core.Game;
 /**
  *
- * @author 11518681
+ * @author douglasjtds
  */
 public class BattleScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form battleScreen
-     */
-    public BattleScreen() {
+    private final Player player;
+    private final Game game;
+    
+    public BattleScreen(Game game) {
         initComponents();
+        this.game = game;
+        this.nameLabelCurrentPlayer.setText(this.game.getCurrentPlayer().getName());
     }
 
     /**
@@ -32,8 +31,8 @@ public class BattleScreen extends javax.swing.JFrame {
         jPopupMenu2 = new javax.swing.JPopupMenu();
         jPopupMenu3 = new javax.swing.JPopupMenu();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        nameLabelCurrentPlayer = new javax.swing.JLabel();
+        nameLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
@@ -51,7 +50,6 @@ public class BattleScreen extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -66,9 +64,9 @@ public class BattleScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Player 1");
+        nameLabelCurrentPlayer.setText("Player 1");
 
-        jLabel2.setText("Player 2");
+        nameLabel2.setText("Player 2");
 
         jLabel3.setText("label para colocar a imagem do Hero");
 
@@ -93,8 +91,6 @@ public class BattleScreen extends javax.swing.JFrame {
         jLabel13.setText("Turno:");
 
         jLabel14.setText("Turno:");
-
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/screens/red-x22menor.png"))); // NOI18N
 
         jMenu1.setText("Relatório");
         jMenuBar1.add(jMenu1);
@@ -121,9 +117,9 @@ public class BattleScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addComponent(jLabel1)
+                .addComponent(nameLabelCurrentPlayer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(nameLabel2)
                 .addGap(73, 73, 73))
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
@@ -142,9 +138,6 @@ public class BattleScreen extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(246, 246, 246)
                                 .addComponent(jLabel15)
@@ -178,8 +171,8 @@ public class BattleScreen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                            .addComponent(nameLabelCurrentPlayer)
+                            .addComponent(nameLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,9 +181,7 @@ public class BattleScreen extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel13))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
+                        .addGap(99, 99, 99)
                         .addComponent(jLabel15)
                         .addGap(81, 81, 81)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -236,15 +227,12 @@ public class BattleScreen extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -267,5 +255,7 @@ public class BattleScreen extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar3;
     private javax.swing.JProgressBar jProgressBar4;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JLabel nameLabel2;
+    private javax.swing.JLabel nameLabelCurrentPlayer;
     // End of variables declaration//GEN-END:variables
 }
