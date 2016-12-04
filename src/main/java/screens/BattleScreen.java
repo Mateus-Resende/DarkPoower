@@ -11,8 +11,9 @@ public class BattleScreen extends javax.swing.JFrame {
     private final Player player;
     private final Game game;
     
-    public BattleScreen(Game game) {
+    public BattleScreen(Player p, Game game) {
         initComponents();
+        this.player = p;
         this.game = game;
         this.nameLabelCurrentPlayer.setText(this.game.getCurrentPlayer().getName());
     }
