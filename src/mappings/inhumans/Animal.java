@@ -14,7 +14,7 @@ public class Animal extends Hero {
 
     private static final Integer id = 5;
 
-    private static final String name = "Thief";
+    private static final String name = "Animal";
 
     private static Map<String, Integer> attributesMap = new HashMap<String, Integer>();
 
@@ -38,6 +38,11 @@ public class Animal extends Hero {
 
     public Animal() {
         super(id, Animal.attributesMap, Animal.availableWeapons, Animal.availableSpells, Race.INHUMAN);
+    }
+    
+    @Override
+    public String toString() {
+        return "Animal";
     }
 
 

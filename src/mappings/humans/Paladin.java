@@ -39,5 +39,12 @@ public class Paladin extends Hero {
     public Paladin() {
         super(id, Paladin.attributesMap, Paladin.availableWeapons, Paladin.availableSpells, Race.HUMAN);
     }
+    
+    
+    
+    @Override
+    public String toString() {
+        return "Paladino";
+    }
 
 }

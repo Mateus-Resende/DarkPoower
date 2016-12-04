@@ -14,7 +14,7 @@ public class Dragon extends Hero{
 
     private static final Integer id = 7;
 
-    private static final String name = "Thief";
+    private static final String name = "Dragon";
 
     private static Map<String, Integer> attributesMap = new HashMap<String, Integer>();
 
@@ -40,5 +40,10 @@ public class Dragon extends Hero{
     public Dragon() {
         super(id, Dragon.attributesMap, Dragon.availableWeapons, Dragon.availableSpells, Race.INHUMAN);
 
+    }
+    
+    @Override
+    public String toString() {
+        return "Dragao";
     }
 }

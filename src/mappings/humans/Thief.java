@@ -45,4 +45,9 @@ public class Thief extends Hero {
 
 
     }
+    
+    @Override
+    public String toString() {
+        return "Ladrao";
+    }
 }

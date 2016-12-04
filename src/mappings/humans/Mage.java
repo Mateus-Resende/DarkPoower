@@ -45,5 +45,10 @@ public class Mage extends Hero {
     public Mage() {
         super(id, Mage.attributesMap, Mage.availableWeapons, Mage.availableSpells, Race.HUMAN);
     }
+    
+    @Override
+    public String toString() {
+        return "Mago";
+    }
 
 }

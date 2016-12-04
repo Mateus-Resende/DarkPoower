@@ -83,6 +83,21 @@ public class Player {
         }
     }
     
-    
+    public boolean changeHero() {
+        Integer index = this.heroes.indexOf(this.activeHero);
+        Boolean changed = true;
+        
+        if (index == 0 && !this.heroes.get(1).isHeroDead()) {
+            this.activeHero = this.heroes.get(1);
+        
+        } else if (index == 1 && !this.heroes.get(0).isHeroDead()) {
+            this.activeHero = this.heroes.get(0);
+        
+        } else {
+            changed = false;
+        }
+        
+        return changed;
+    }
 
 }

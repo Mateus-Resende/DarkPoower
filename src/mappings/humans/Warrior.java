@@ -41,5 +41,10 @@ public class Warrior extends Hero {
 
         super(id, Warrior.attributesMap, Warrior.availableWeapons, Warrior.availableSpells, Race.HUMAN);
     }
+    
+    @Override
+    public String toString() {
+        return "Guerreiro";
+    }
 
 }

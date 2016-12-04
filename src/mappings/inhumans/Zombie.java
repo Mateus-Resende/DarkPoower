@@ -14,7 +14,7 @@ public class Zombie extends Hero{
 
     private static final Integer id = 8;
 
-    private static final String name = "Thief";
+    private static final String name = "Zombie";
 
     private static Map<String, Integer> attributesMap = new HashMap<String, Integer>();
 
@@ -40,6 +40,11 @@ public class Zombie extends Hero{
 
     public Zombie() {
         super(id, Zombie.attributesMap, Zombie.availableWeapons, Zombie.availableSpells, Race.INHUMAN);
+    }
+    
+    @Override
+    public String toString() {
+        return "Zumbi";
     }
 
 }

@@ -14,7 +14,7 @@ public class Troll extends Hero{
 
     private static final Integer id = 6;
 
-    private static final String name = "Thief";
+    private static final String name = "Troll";
 
     private static Map<String, Integer> attributesMap = new HashMap<String, Integer>();
 
@@ -38,5 +38,10 @@ public class Troll extends Hero{
 
     public Troll() {
         super(id, Troll.attributesMap, Troll.availableWeapons, Troll.availableSpells, Race.INHUMAN);
+    }
+    
+    @Override
+    public String toString() {
+        return "Troll";
     }
 }

@@ -43,6 +43,17 @@ public class Hero {
         this.availableWeapons = availableWeapons;
         this.equippedWeapon = this.getLowestDamageWeapon();
         this.race = race;
+        this.updateAttributes(attributes);
+    }
+    
+    private void updateAttributes(Map<String, Integer> attributes) {
+        this.lifePoints = attributes.get("life");
+        this.manaPoints = attributes.get("mana");
+        this.strength = attributes.get("strength");
+        this.abilityPower = attributes.get("abilityPower");
+        this.armor = attributes.get("armor");
+        this.magicResist = attributes.get("magicResist");
+        this.agility = attributes.get("agility");
     }
 
     /**
