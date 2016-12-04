@@ -35,6 +35,8 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+   
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -90,7 +92,7 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Digite o nome do usuario");
+        jLabel3.setText("Digite o nome do usuário");
 
         javax.swing.GroupLayout UserInputPanelLayout = new javax.swing.GroupLayout(UserInputPanel);
         UserInputPanel.setLayout(UserInputPanelLayout);
