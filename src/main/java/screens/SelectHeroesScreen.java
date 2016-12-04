@@ -5,6 +5,8 @@
  */
 package screens;
 
+import core.Game;
+import javax.swing.JOptionPane;
 import mappings.base.Hero;
 import mappings.base.Player;
 import mappings.humans.Mage;
@@ -21,12 +23,14 @@ import mappings.inhumans.Zombie;
  * @author mresende
  */
 public class SelectHeroesScreen extends javax.swing.JFrame {
-    
-    private final Player player;
 
-    public SelectHeroesScreen(Player p) {
+    private final Player player;
+    private Game game;
+
+    public SelectHeroesScreen(Game game) {
         initComponents();
-        this.player = p;
+        this.player = game.getCurrentPlayer();
+        this.game = game;
         this.nameLabel.setText(this.player.getName());
     }
 
@@ -44,9 +48,7 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         hero1Class = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
         hero2Class = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,61 +67,56 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Humano", "Inumano" }));
+        hero1Class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Mago", "Paladino", "Ladrao", "Guerreiro", "Animal", "Dragao", "Troll", "Zumbi" }));
 
-        hero1Class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Humano", "Inumano" }));
-
-        hero2Class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        hero2Class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Mago", "Paladino", "Ladrao", "Guerreiro", "Animal", "Dragao", "Troll", "Zumbi" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(667, 667, 667)
+                        .addComponent(jButton2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(573, 573, 573)))
+                .addContainerGap(55, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(407, 407, 407)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(667, 667, 667)
-                                .addComponent(jButton2))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(113, 113, 113)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox1, 0, 178, Short.MAX_VALUE)
-                                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(hero1Class, 0, 195, Short.MAX_VALUE)
-                                    .addComponent(hero2Class, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addComponent(hero1Class, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(407, 407, 407)
-                        .addComponent(nameLabel)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(hero2Class, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameLabel))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(nameLabel)
-                .addGap(99, 99, 99)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(84, 84, 84)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(hero1Class, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(hero1Class, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(hero2Class, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(72, 72, 72)
+                    .addComponent(hero2Class, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(77, 77, 77)
                 .addComponent(jButton2)
                 .addContainerGap())
         );
@@ -141,32 +138,48 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String clazz1 = this.hero1Class.getSelectedItem().toString();
         String clazz2 = this.hero2Class.getSelectedItem().toString();
-        this.player.addHero(this.getSelectedHero(clazz1));
-        this.player.addHero(this.getSelectedHero(clazz2));
-        this.dispose();
+        Hero h1 = this.getSelectedHero(clazz1);
+        Hero h2 = this.getSelectedHero(clazz2);
+        if (h1 != null && h2 != null) {
+            this.player.addHero(h1);
+            this.player.addHero(h2);
+            if (this.player.isReady()) {
+                if (this.game.playersHaveEnoughHeroes()) {
+                    BattleScreen battle = new BattleScreen();
+                    battle.setVisible(true);
+                } else {
+                    this.game.setCurrentPlayer(this.game.getNextPlayer());
+                    SelectHeroesScreen selectHeroes = new SelectHeroesScreen(this.game);
+                    selectHeroes.setVisible(true);
+                }
+                this.dispose();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione dois herois validos!");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private Hero getSelectedHero(String className) {
-        
-        switch(className) {
-            case "Warrior":
+
+        switch (className) {
+            case "Guerreiro":
                 return new Warrior();
-            case "Mage":
+            case "Mago":
                 return new Mage();
-            case "Paladin":
+            case "Paladino":
                 return new Paladin();
-            case "Thief":
+            case "Ladrao":
                 return new Thief();
             case "Animal":
                 return new Animal();
-            case "Dragon":
+            case "Dragao":
                 return new Dragon();
             case "Troll":
                 return new Troll();
-            case "Zombie":
+            case "Zumbi":
                 return new Zombie();
         }
-        
+
         return null;
     }
 
@@ -174,8 +187,6 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> hero1Class;
     private javax.swing.JComboBox<String> hero2Class;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

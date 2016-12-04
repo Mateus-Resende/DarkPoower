@@ -94,15 +94,13 @@ public class BattleScreen extends javax.swing.JFrame {
 
         jLabel14.setText("Turno:");
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/screens/red-x22menor.png"))); // NOI18N
-
-        jMenu1.setText("Relatório");
+        jMenu1.setText("RelatÃ³rio");
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Salvar jogo atual");
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Ações");
+        jMenu3.setText("AÃ§Ãµes");
 
         jMenu4.setText("Ataques");
 
@@ -185,9 +183,9 @@ public class BattleScreen extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel14))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel13))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)

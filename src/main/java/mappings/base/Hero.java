@@ -14,7 +14,10 @@ public class Hero {
 
     private final Integer id;
     private final Map<String, Integer> attributes;
-
+    private final List<Weapons> availableWeapons;
+    private final List<Spells> availableSpells;
+    private final Race race;
+    
     private Integer lifePoints;
     private Integer manaPoints;
     private Integer strength;
@@ -22,10 +25,7 @@ public class Hero {
     private Integer armor;
     private Integer magicResist;
     private Integer agility;
-    private List<Weapons> availableWeapons;
-    private List<Spells> availableSpells;
     private Weapons equippedWeapon;
-    private Race race;
 
     /**
      * criação de herói com os atributos desejados, devem vir da classe que está extendendo herói
@@ -101,7 +101,9 @@ public class Hero {
      * Adiciona 10 de mana para o fim do turno
      */
     public void addEndTurnMana() {
-    	this.manaPoints += 10;
+        if (this.attributes.get("manapoints") > this.manaPoints) {
+            this.manaPoints += 10;
+        }
     }
 
     /**

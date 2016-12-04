@@ -1,26 +1,26 @@
 package mappings.base;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown=true)
 public class Player {
 
-    @JsonProperty("name")
     private final String name;
 
-    @JsonProperty("heroes")
     private List<Hero> heroes;
 
-    @JsonProperty("activeHero")
     private Hero activeHero;
     
     private Integer specialAttackCount;
 
     public Player(String name){
         this.name = name;
+        this.heroes = new ArrayList();
+    }
+    
+    public Boolean isReady() {
+        return this.heroes.size() == 2;
     }
 
     public Boolean hasLost() {

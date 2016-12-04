@@ -61,8 +61,6 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Dark POOwer");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/rpg.png"))); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,7 +96,7 @@ public class HomeScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        AmountOfPlayersScreen playerCreation = new AmountOfPlayersScreen();
+        PlayerCreationScreen playerCreation = new PlayerCreationScreen();
         playerCreation.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
