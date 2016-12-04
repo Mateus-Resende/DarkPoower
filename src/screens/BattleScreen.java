@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import mappings.base.Hero;
 import mappings.base.Spells;
+import mappings.base.Weapons;
 
 /**
  *
@@ -23,14 +24,31 @@ public class BattleScreen extends javax.swing.JFrame {
         this.game = game;
         this.hero = hero;
         this.nameLabelCurrentPlayer.setText(this.game.getCurrentPlayer().getName());
-        this.nameLabelWeapon.setText(this.hero.getEquippedWeapon().name());
         this.populateSpellsCombo();
-
+        this.populateWeaponsCombo();
+        this.populateEnemiesList();
     }
 
     private void populateSpellsCombo() {
+        this.spellsCombo.removeAllItems();
         for (Spells s : this.hero.getAvailableSpells()) {
-            this.spellsComboBox.addItem(s.getClass().toString());
+            this.spellsCombo.addItem(s.getClass().toString());
+        }
+    }
+
+    private void populateEnemiesList() {
+        this.enemiesCombo.removeAllItems();
+        for (Player p : this.game.getEnemies()) {
+            for (Hero h : p.getHeroes()) {
+                this.enemiesCombo.addItem(p.getName() + ": " + h.getClass().toString());
+            }
+        }
+    }
+
+    private void populateWeaponsCombo() {
+        this.weaponsCombo.removeAllItems();
+        for (Weapons w : this.hero.getAvailableWeapons()) {
+            this.weaponsCombo.addItem(w.name());
         }
     }
 
@@ -48,6 +66,7 @@ public class BattleScreen extends javax.swing.JFrame {
         jPopupMenu2 = new javax.swing.JPopupMenu();
         jPopupMenu3 = new javax.swing.JPopupMenu();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         nameLabelCurrentPlayer = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         healthPointsLabel = new javax.swing.JLabel();
@@ -55,17 +74,16 @@ public class BattleScreen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        enemiesJList = new javax.swing.JList<>();
-        nameLabelWeapon = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         useSpellBtn = new javax.swing.JButton();
-        changeWeaponBtn = new javax.swing.JButton();
-        changeHeroBtn = new javax.swing.JButton();
         manaPointsLabel = new javax.swing.JLabel();
         attackBtn = new javax.swing.JButton();
-        spellsComboBox = new javax.swing.JComboBox<>();
+        spellsCombo = new javax.swing.JComboBox<>();
+        heroesCombo = new javax.swing.JComboBox<>();
+        enemiesCombo = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        weaponsCombo = new javax.swing.JComboBox<>();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -86,16 +104,7 @@ public class BattleScreen extends javax.swing.JFrame {
 
         jLabel2.setText("Arma selecionada:");
 
-        jLabel3.setText("Adversários:");
-
-        enemiesJList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(enemiesJList);
-
-        nameLabelWeapon.setText("jLabel7");
+        jLabel3.setText("Adversário:");
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/screens/coração PNG.png"))); // NOI18N
         jLabel8.setToolTipText("pontos de vida");
@@ -105,78 +114,85 @@ public class BattleScreen extends javax.swing.JFrame {
 
         useSpellBtn.setText("Usar magia");
 
-        changeWeaponBtn.setText("Trocar Arma");
-
-        changeHeroBtn.setText("Trocar heroi");
-
         manaPointsLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
         manaPointsLabel.setText("0");
 
         attackBtn.setText("Atacar");
 
-        spellsComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        spellsComboBox.addActionListener(new java.awt.event.ActionListener() {
+        spellsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        spellsCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                spellsComboBoxActionPerformed(evt);
+                spellsComboActionPerformed(evt);
             }
         });
+
+        heroesCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        heroesCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                heroesComboActionPerformed(evt);
+            }
+        });
+
+        enemiesCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel5.setText("label para colocar a imagem do Hero");
+
+        weaponsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(manaPointsLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(healthPointsLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(useSpellBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                    .addComponent(attackBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(63, 63, 63))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(nameLabelCurrentPlayer)
+                .addGap(18, 18, 18)
+                .addComponent(heroesCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(enemiesCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameLabelWeapon)
                     .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(spellsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(weaponsCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, 143, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spellsCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(39, 39, 39)
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(79, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(nameLabelCurrentPlayer)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addGap(118, 118, 118))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(manaPointsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(changeHeroBtn))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(healthPointsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(changeWeaponBtn)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(useSpellBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                            .addComponent(attackBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(63, 63, 63))
+                        .addComponent(jLabel15)))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabelCurrentPlayer)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(heroesCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enemiesCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,35 +203,29 @@ public class BattleScreen extends javax.swing.JFrame {
                                 .addGap(38, 38, 38)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spellsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(spellsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(42, 42, 42)
-                        .addComponent(jLabel2))
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(weaponsCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(99, 99, 99)
-                                .addComponent(nameLabelWeapon))))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(changeWeaponBtn)
-                                .addComponent(attackBtn))
+                            .addComponent(attackBtn)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addComponent(healthPointsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(useSpellBtn)
-                                    .addComponent(changeHeroBtn)))
+                                .addComponent(useSpellBtn))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
                                 .addComponent(manaPointsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -223,16 +233,20 @@ public class BattleScreen extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void spellsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spellsComboBoxActionPerformed
+    private void spellsComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spellsComboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_spellsComboBoxActionPerformed
+    }//GEN-LAST:event_spellsComboActionPerformed
+
+    private void heroesComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heroesComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_heroesComboActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,15 +254,16 @@ public class BattleScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton attackBtn;
-    private javax.swing.JButton changeHeroBtn;
-    private javax.swing.JButton changeWeaponBtn;
-    private javax.swing.JList<String> enemiesJList;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> enemiesCombo;
     private javax.swing.JLabel healthPointsLabel;
+    private javax.swing.JComboBox<String> heroesCombo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuItem jMenuItem1;
@@ -256,11 +271,10 @@ public class BattleScreen extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JPopupMenu jPopupMenu3;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel manaPointsLabel;
     private javax.swing.JLabel nameLabelCurrentPlayer;
-    private javax.swing.JLabel nameLabelWeapon;
-    private javax.swing.JComboBox<String> spellsComboBox;
+    private javax.swing.JComboBox<String> spellsCombo;
     private javax.swing.JButton useSpellBtn;
+    private javax.swing.JComboBox<String> weaponsCombo;
     // End of variables declaration//GEN-END:variables
 }

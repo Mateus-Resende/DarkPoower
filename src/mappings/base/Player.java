@@ -10,6 +10,14 @@ public class Player {
 
     private List<Hero> heroes;
 
+    public List<Hero> getHeroes() {
+        return heroes;
+    }
+
+    public void setHeroes(List<Hero> heroes) {
+        this.heroes = heroes;
+    }
+
     private Hero activeHero;
     
     private Integer specialAttackCount;
