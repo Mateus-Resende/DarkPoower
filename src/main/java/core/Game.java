@@ -10,13 +10,17 @@ import mappings.base.Spells;
 import mappings.base.Weapons;
 
 import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import screens.SelectHeroesScreen;
+import screens.SelectRaceScreen;
 
 /**
  * responsável pela lógica de negócio dos turnos
  */
 public class Game {
 
-	private List<Player> players;
+	private final List<Player> players;
 	private Player currentPlayer;
 	private Boolean gameOver;
 	private Boolean gameRunning;
@@ -24,7 +28,19 @@ public class Game {
 	public Game(List<Player> players) {
 		this.players = players;
 		this.gameRunning = false;
+                this.gameOver = false;
 	}
+        
+        public void init() {
+            for(Player p : this.players) {
+                SelectHeroesScreen selectHeroes = new SelectHeroesScreen(p);
+                selectHeroes.setVisible(true);
+                
+            }
+            
+            this.setCurrentPlayer(this.players.get(0));
+            
+        }
 
 	/**
 	 * Player que está jogando na rodada atual
