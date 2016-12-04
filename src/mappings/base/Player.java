@@ -58,6 +58,9 @@ public class Player {
     public void addHero(Hero h) {
         if (this.heroes.size() < 2) {
             this.heroes.add(h);
+            if (this.activeHero == null) {
+                this.activeHero = this.heroes.get(0);
+            }
         }
     }
 

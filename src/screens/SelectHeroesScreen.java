@@ -145,7 +145,7 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
             this.player.addHero(h2);
             if (this.player.isReady()) {
                 if (this.game.playersHaveEnoughHeroes()) {
-                    BattleScreen battle = new BattleScreen();
+                    BattleScreen battle = new BattleScreen(this.game.getCurrentPlayer(), this.game, this.game.getCurrentPlayer().getActiveHero());
                     battle.setVisible(true);
                 } else {
                     this.game.setCurrentPlayer(this.game.getNextPlayer());
