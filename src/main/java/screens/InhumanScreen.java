@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package telaescolhausuario;
+package screens;
 
 /**
  *
  * @author jonas
  */
-public class Inumano extends javax.swing.JFrame {
+public class InhumanScreen extends javax.swing.JFrame {
 
     /**
      * Creates new form Inumano
      */
-    public Inumano() {
+    public InhumanScreen() {
         initComponents();
     }
 
@@ -38,11 +38,11 @@ public class Inumano extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telaescolhausuario/Imagens/Animal.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Animal.jpg"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telaescolhausuario/Imagens/Dragon.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Dragon.jpg"))); // NOI18N
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telaescolhausuario/Imagens/Troll.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Troll.jpg"))); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Animal");
@@ -53,7 +53,7 @@ public class Inumano extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton3.setText("Dragão");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telaescolhausuario/Imagens/Zombie.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Zombie.jpg"))); // NOI18N
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton4.setText("Zombie");
@@ -106,7 +106,7 @@ public class Inumano extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addComponent(jButton4))
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

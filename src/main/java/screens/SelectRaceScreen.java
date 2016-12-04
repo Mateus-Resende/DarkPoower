@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package telaescolhausuario;
+package screens;
+
+import mappings.base.Player;
 
 /**
  *
  * @author jonas
  */
-public class TelePersonagem extends javax.swing.JFrame {
+public class SelectRaceScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelePersonagem
-     */
-    public TelePersonagem() {
+    Player player;
+
+    public SelectRaceScreen(Player player) {
+        this.player = player;
         initComponents();
     }
 
@@ -30,24 +32,31 @@ public class TelePersonagem extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        human = new javax.swing.JButton();
+        inhuman = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telaescolhausuario/Imagens/x.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/x.jpg"))); // NOI18N
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telaescolhausuario/Imagens/Inhuman.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Inhuman.jpg"))); // NOI18N
+        jLabel3.setLabelFor(inhuman);
         jLabel3.setText("Inumano");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/telaescolhausuario/Imagens/Human.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Human.jpg"))); // NOI18N
+        jLabel1.setLabelFor(human);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jButton1.setText("Humano");
+        human.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        human.setText("Humano");
+        human.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                humanActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jButton2.setText("Inumano");
+        inhuman.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        inhuman.setText("Inumano");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,9 +71,9 @@ public class TelePersonagem extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(190, 190, 190)
-                .addComponent(jButton1)
+                .addComponent(human)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(inhuman)
                 .addGap(251, 251, 251))
         );
         layout.setVerticalGroup(
@@ -78,51 +87,23 @@ public class TelePersonagem extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)))
+                    .addComponent(human)
+                    .addComponent(inhuman)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-        public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inumano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inumano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inumano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inumano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void humanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_humanActionPerformed
+        HumanScreen humanScreen = new HumanScreen(this.player);
+        humanScreen.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_humanActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelePersonagem().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton human;
+    private javax.swing.JButton inhuman;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
