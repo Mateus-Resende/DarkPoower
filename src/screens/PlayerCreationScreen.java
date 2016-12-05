@@ -39,6 +39,7 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         amountOfPlayers = new javax.swing.JTextField();
+        jLabelImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dark Poower");
@@ -48,6 +49,7 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
 
         jButton1.setText("Continuar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +57,8 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton1);
+        jButton1.setBounds(397, 215, 150, 32);
 
         jButton2.setText("Voltar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -62,43 +66,21 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton2);
+        jButton2.setBounds(88, 215, 140, 32);
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 51));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Numero de usuarios que irao jogar: ");
+        jLabel2.setText("Número de usuários que irão jogar: ");
         jLabel2.setToolTipText("");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(92, 122, 202, 16);
+        jPanel2.add(amountOfPlayers);
+        amountOfPlayers.setBounds(306, 118, 241, 24);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(amountOfPlayers, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
-                .addGap(111, 111, 111))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(amountOfPlayers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(73, 73, 73)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
+        jLabelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/background.PNG"))); // NOI18N
+        jPanel2.add(jLabelImage);
+        jLabelImage.setBounds(0, 0, 630, 310);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,6 +138,7 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelImage;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 
