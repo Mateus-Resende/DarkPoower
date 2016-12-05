@@ -29,7 +29,7 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
 
     public SelectHeroesScreen(Game game) {
         initComponents();
-        setSize(850, 380);
+       setSize(850, 393);
         this.player = game.getCurrentPlayer();
         this.game = game;
         this.nameLabel.setText(this.player.getName());
@@ -55,7 +55,7 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLayeredPane1.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -71,10 +71,16 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Selecione o heroi principal");
 
+        nameLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
         nameLabel.setText("jLabel1");
 
+        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Selecione o heroi secundario");
 
         jLayeredPane1.setLayer(hero2Class, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -99,15 +105,16 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
                 .addContainerGap(467, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap(412, Short.MAX_VALUE)
+                    .addContainerGap(434, Short.MAX_VALUE)
                     .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(hero1Class, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(hero2Class, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(203, 203, 203))
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap(718, Short.MAX_VALUE)
-                    .addComponent(jButton2)
-                    .addContainerGap()))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(hero1Class, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(hero2Class, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(203, 203, 203))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                            .addComponent(jButton2)
+                            .addContainerGap()))))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,25 +130,23 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(106, 106, 106)
                     .addComponent(hero1Class, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                     .addComponent(hero2Class, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(77, 77, 77)
                     .addComponent(jButton2)
                     .addContainerGap()))
         );
 
-        getContentPane().add(jLayeredPane1);
-        jLayeredPane1.setBounds(0, 0, 810, 350);
+        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel1.setLayout(null);
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(2129, 770, 2727, 732);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2129, 770, 0, 0));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/screens/background.PNG"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 860, 380);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/background.PNG"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 380));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
