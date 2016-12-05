@@ -55,7 +55,7 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         jLayeredPane1.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -137,13 +137,16 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
-        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLayeredPane1);
+        jLayeredPane1.setBounds(0, 0, 842, 354);
 
         jPanel1.setLayout(null);
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2129, 770, 0, 0));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(2129, 770, 0, 0);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/background.PNG"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 380));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 860, 380);
 
         pack();
         setLocationRelativeTo(null);

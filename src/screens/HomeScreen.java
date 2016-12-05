@@ -31,7 +31,7 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("New Game");
@@ -40,7 +40,8 @@ public class HomeScreen extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 140, 41));
+        getContentPane().add(jButton1);
+        jButton1.setBounds(80, 240, 140, 41);
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setText("Quit Game");
@@ -49,17 +50,21 @@ public class HomeScreen extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 140, 42));
+        getContentPane().add(jButton3);
+        jButton3.setBounds(370, 240, 140, 42);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Dark POOwer");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 530, -1));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 290));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(30, 0, 530, 57);
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 0, 290);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/rpg.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 290));
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 0, 620, 290);
 
         pack();
         setLocationRelativeTo(null);
