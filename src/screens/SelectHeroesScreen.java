@@ -29,6 +29,7 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
 
     public SelectHeroesScreen(Game game) {
         initComponents();
+        setSize(850, 380);
         this.player = game.getCurrentPlayer();
         this.game = game;
         this.nameLabel.setText(this.player.getName());
@@ -43,21 +44,24 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        nameLabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        hero1Class = new javax.swing.JComboBox<>();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
         hero2Class = new javax.swing.JComboBox<>();
+        hero1Class = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        nameLabel.setText("jLabel1");
+        jLayeredPane1.setBackground(new java.awt.Color(0, 102, 102));
 
-        jLabel2.setText("Selecione o heroi principal");
+        hero2Class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Mago", "Paladino", "Ladrao", "Guerreiro", "Animal", "Dragao", "Troll", "Zumbi" }));
 
-        jLabel3.setText("Selecione o heroi secundario");
+        hero1Class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Mago", "Paladino", "Ladrao", "Guerreiro", "Animal", "Dragao", "Troll", "Zumbi" }));
 
         jButton2.setText("Concluido");
         jButton2.setToolTipText("");
@@ -67,70 +71,75 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
             }
         });
 
-        hero1Class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Mago", "Paladino", "Ladrao", "Guerreiro", "Animal", "Dragao", "Troll", "Zumbi" }));
+        jLabel2.setText("Selecione o heroi principal");
 
-        hero2Class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Mago", "Paladino", "Ladrao", "Guerreiro", "Animal", "Dragao", "Troll", "Zumbi" }));
+        nameLabel.setText("jLabel1");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(667, 667, 667)
-                        .addComponent(jButton2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(573, 573, 573)))
-                .addContainerGap(55, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(407, 407, 407)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(hero1Class, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(hero2Class, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameLabel))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(nameLabel)
-                .addGap(84, 84, 84)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(hero1Class, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jLabel3.setText("Selecione o heroi secundario");
+
+        jLayeredPane1.setLayer(hero2Class, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(hero1Class, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(nameLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(hero2Class, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77)
-                .addComponent(jButton2)
-                .addContainerGap())
+                    .addComponent(jLabel2)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(nameLabel)))
+                .addContainerGap(467, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap(412, Short.MAX_VALUE)
+                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(hero1Class, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hero2Class, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(203, 203, 203))
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap(718, Short.MAX_VALUE)
+                    .addComponent(jButton2)
+                    .addContainerGap()))
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(nameLabel)
+                .addGap(64, 64, 64)
+                .addComponent(jLabel2)
+                .addGap(88, 88, 88)
+                .addComponent(jLabel3)
+                .addContainerGap(121, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addGap(106, 106, 106)
+                    .addComponent(hero1Class, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                    .addComponent(hero2Class, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(77, 77, 77)
+                    .addComponent(jButton2)
+                    .addContainerGap()))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jLayeredPane1);
+        jLayeredPane1.setBounds(0, 0, 810, 350);
+
+        jPanel1.setLayout(null);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(2129, 770, 2727, 732);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/screens/background.PNG"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 860, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,8 +196,10 @@ public class SelectHeroesScreen extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> hero1Class;
     private javax.swing.JComboBox<String> hero2Class;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel nameLabel;
     // End of variables declaration//GEN-END:variables

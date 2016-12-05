@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/screens/HomeScreen.java</file>
-            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/screens/InhumanScreen.java</file>
-            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/screens/BattleScreen.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/core/Game.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/mappings/inhumans/Dragon.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/exceptions/InvalidAttackTypeException.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/screens/SelectHeroesScreen.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/mappings/base/Hero.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/mappings/inhumans/Troll.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/core/Main.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/mappings/base/Weapons.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/mappings/base/Spells.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/mappings/inhumans/Animal.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/exceptions/SpellNotAvailableForClass.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/exceptions/SpecialAttackNotAvailableException.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/mappings/inhumans/Zombie.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/mappings/humans/Thief.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/mappings/base/Player.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/mappings/humans/Paladin.java</file>
+            <file>file:/C:/Users/douglasjtds/Desktop/FACULDADE/4º%20Semestre/Programação%20Orientada%20à%20Objetos/projetosPOO/trabalhoPraticoFinal/DarkPoower/src/core/TurnAction.java</file>
         </group>
     </open-files>
 </project-private>
