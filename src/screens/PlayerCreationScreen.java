@@ -22,7 +22,7 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
      */
     public PlayerCreationScreen() {
         this.initComponents();
-        //setSize(658, 368);
+        setSize(638, 349);
     }
 
 
@@ -50,7 +50,7 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setLayout(null);
 
         jButton1.setText("Continuar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +58,8 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 215, 150, -1));
+        jPanel2.add(jButton1);
+        jButton1.setBounds(397, 215, 150, 23);
 
         jButton2.setText("Voltar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -66,17 +67,21 @@ public class PlayerCreationScreen extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 215, 140, -1));
+        jPanel2.add(jButton2);
+        jButton2.setBounds(88, 215, 140, 23);
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 51));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Número de usuários que irão jogar: ");
         jLabel2.setToolTipText("");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 122, -1, -1));
-        jPanel2.add(amountOfPlayers, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 118, 241, -1));
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(92, 122, 172, 14);
+        jPanel2.add(amountOfPlayers);
+        amountOfPlayers.setBounds(306, 118, 241, 20);
 
         jLabelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/background.PNG"))); // NOI18N
-        jPanel2.add(jLabelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 310));
+        jPanel2.add(jLabelImage);
+        jLabelImage.setBounds(0, 0, 630, 310);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
